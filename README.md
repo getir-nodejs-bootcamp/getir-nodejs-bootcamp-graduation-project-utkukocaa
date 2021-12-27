@@ -9,7 +9,7 @@ You can click the link and reach the project on Heroku. I put a link as a Docume
 Clone the project
 
 ```bash
-git clone https://github.com/utkukocaa/getir-final-task-utku-koca.git
+git clone https://github.com/getir-nodejs-bootcamp/getir-nodejs-bootcamp-graduation-project-utkukocaa.git
 ```
 
 Install the dependencies
