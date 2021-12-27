@@ -153,7 +153,7 @@ describe("POST /api/v1/records", () => {
     });
   });
 
-  //should respond with a status code of 400
+  //when any of the payloads is missed,should respond with a status code of 400
   describe("when any of the payload is missing", () => {
     test("when startDate is missing , check if response 400 (Bad Request)", () => {
       request(app)

@@ -13,6 +13,11 @@ const cors = require("cors");
 const xss = require("xss-clean");
 const morgan = require("morgan");
 
+//Swagger
+const swaggerUI = require("swagger-ui-express");
+const YAML = require("yamljs");
+const swaggerDocument = YAML.load("./swagger.yaml");
+
 config(); // set dotenv and express-async-errors
 loaders(); //connected to database
 
@@ -23,9 +28,10 @@ app.use(helmet()); // set headres for security purposes
 app.use(cors()); //accessible from different domain
 app.use(xss()); //sanitizes user inputs to protect injected malicious codes
 
-app.get("/api/v1/", (req, res) => {
-  res.status(200).json("Welcome to Getir API");
+app.get("/", (req, res) => {
+  res.send('<h1>GETIR-API</h1><a href="/api-docs">Documentation</a>');
 });
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 app.use("/api/v1/records", recordRouter); // routes
 app.use(notFound); // endpoints not existed
 app.use(errorHandlerMiddleware); // error handling

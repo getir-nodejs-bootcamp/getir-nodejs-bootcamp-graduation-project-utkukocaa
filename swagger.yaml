@@ -1,0 +1,65 @@
+openapi: 3.0.0
+info:
+  title: GETIR-API-TASK
+  contact: {}
+  version: "1.0"
+servers:
+  - url: https://getir-api-utku-koca.herokuapp.com/api/v1
+    variables: {}
+paths:
+  /records:
+    post:
+      tags:
+        - Records
+      summary: LIST RECORDS
+      operationId: LISTRECORDS
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LISTRECORDSREQUEST"
+            example:
+              startDate: "2016-10-04"
+              endDate: "2018-07-21"
+              minCount: 300
+              maxCount: 1000
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security: []
+components:
+  schemas:
+    LISTRECORDSREQUEST:
+      title: LISTRECORDSREQUEST
+      required:
+        - startDate
+        - endDate
+        - minCount
+        - maxCount
+      type: object
+      properties:
+        startDate:
+          type: string
+        endDate:
+          type: string
+        minCount:
+          type: integer
+          format: int32
+        maxCount:
+          type: integer
+          format: int32
+      example:
+        startDate: "2016-10-04"
+        endDate: "2018-07-21"
+        minCount: 300
+        maxCount: 1000
+security:
+  - {}
+tags:
+  - name: Records
+    description: ""
