@@ -1,7 +1,7 @@
 const { BadRequestError } = require("../errors/index");
 
 const validate = (schema, source) => (req, res, next) => {
-  //options to fix error message warrping witj slash
+  //adding options to fix error message wrapping with slash
   const options = {
     errors: {
       wrap: {
